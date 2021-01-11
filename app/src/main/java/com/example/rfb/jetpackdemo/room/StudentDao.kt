@@ -22,4 +22,10 @@ interface StudentDao {
 
     @Query("select * from student where id in (:ids)")
     fun getByIds(ids : IntArray):List<Student>
+
+    @Query("delete from student where id = :id ")
+    fun deleteUserById(id:Int)
+
+    @Query("update student set name = :updateName where id =  :id")
+    fun update(id: Long, updateName: String)
 }

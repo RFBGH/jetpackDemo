@@ -21,8 +21,7 @@ class RoomActivity : Activity() {
     }
 
     private fun getStudentDao():StudentDao{
-        val dataBase = Room.databaseBuilder(applicationContext, DataBase::class.java, "room").build()
-        return dataBase.studentDao()
+        return DataBase.getDataBase(this).studentDao()
     }
 
     private fun insert(){
