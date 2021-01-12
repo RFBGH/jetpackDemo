@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/index_fragment"
+    >
+
+    <fragment
+        android:id="@+id/index_fragment"
+        android:name="com.example.rfb.jetpackdemo.navigation.IndexDestinationFragment"
+        android:label="Index"
+        tools:layout="@layout/fragment_index_destination">
+
+        <action
+            android:id="@+id/to_destination_activity"
+            app:destination="@id/destination_activity"/>
+
+        <action
+            android:id="@+id/to_fragment2"
+            app:destination="@id/fragment2"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.rfb.jetpackdemo.navigation.Fragment2"
+        android:label="Index"
+        tools:layout="@layout/fragment_index_destination">
+
+        <action
+            android:id="@+id/to_fragment3"
+            app:destination="@id/fragment3"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment3"
+        android:name="com.example.rfb.jetpackdemo.navigation.Fragment3"
+        android:label="Index"
+        tools:layout="@layout/fragment_index_destination">
+
+        <action
+            android:id="@+id/to_fragment1"
+            app:destination="@id/index_fragment"/>
+
+    </fragment>
+
+    <activity
+        android:id="@+id/destination_activity"
+        android:name="com.example.rfb.jetpackdemo.navigation.DestinationActivity"
+        android:label="DestinationActivity"
+        tools:layout="@layout/activity_destination">
+
+        <deepLink
+            app:uri="http://activity/destination_activity" />
+
+    </activity>
+
+</navigation>
