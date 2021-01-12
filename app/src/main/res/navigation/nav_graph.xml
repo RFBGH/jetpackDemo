@@ -25,7 +25,7 @@
         android:id="@+id/fragment2"
         android:name="com.example.rfb.jetpackdemo.navigation.Fragment2"
         android:label="Index"
-        tools:layout="@layout/fragment_index_destination">
+        tools:layout="@layout/fragment_2">
 
         <action
             android:id="@+id/to_fragment3"
@@ -40,7 +40,7 @@
         android:id="@+id/fragment3"
         android:name="com.example.rfb.jetpackdemo.navigation.Fragment3"
         android:label="Index"
-        tools:layout="@layout/fragment_index_destination">
+        tools:layout="@layout/fragment_3">
 
         <action
             android:id="@+id/to_fragment1"
