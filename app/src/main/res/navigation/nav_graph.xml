@@ -29,7 +29,10 @@
 
         <action
             android:id="@+id/to_fragment3"
-            app:destination="@id/fragment3"/>
+            app:destination="@id/fragment3"
+            app:enterAnim="@anim/in_from_right"
+            app:exitAnim="@anim/out_to_left"
+            />
 
     </fragment>
 
