@@ -31,6 +31,7 @@ class RoomActivity : Activity() {
             val student = Student()
             student.name="name $it"
             student.age = it
+            student.sex = 1
             student
         }
 

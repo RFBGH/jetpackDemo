@@ -16,8 +16,11 @@ class Student {
     @ColumnInfo(name="age")
     var age = 0
 
+    @ColumnInfo(name="sex")
+    var sex = 0
+
     override fun toString(): String {
-        return "id $id, name:$name, age:$age"
+        return "id $id, name:$name, age:$age, sex:$sex"
     }
 }
 
