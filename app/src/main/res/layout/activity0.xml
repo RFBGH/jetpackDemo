@@ -4,33 +4,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:text="activity0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <Button
         android:id="@+id/btn_test"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="text"/>
+        android:text="start service"/>
+
 
     <Button
-        android:id="@+id/btn_databinding"
+        android:id="@+id/btn_test1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="databinding"/>
+        android:text="start activity1"/>
 
     <Button
-        android:id="@+id/btn_room"
+        android:id="@+id/btn_start_activity2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="room"/>
-
-    <Button
-        android:id="@+id/btn_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="navigation"/>
-
-    <Button
-        android:id="@+id/btn_activity0"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="activity0"/>
+        android:text="start activity2"/>
 </LinearLayout>
