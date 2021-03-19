@@ -6,6 +6,7 @@ import androidx.annotation.Keep
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rfb.jetpackdemo.activity_process.Activity0
 import com.example.rfb.jetpackdemo.databinding.DataBindingActivity
+import com.example.rfb.jetpackdemo.dialog.DialogCrashActivity
 import com.example.rfb.jetpackdemo.navigation.NavigationActivity
 import com.example.rfb.jetpackdemo.room.RoomActivity
 import com.example.rfb.jetpackdemo.utils.ToastUtil
@@ -37,6 +38,11 @@ class MainActivity : AppCompatActivity(){
         findViewById<View>(R.id.btn_navigation)
                 .setOnClickListener {
                     NavigationActivity.start(this)
+                }
+
+        findViewById<View>(R.id.btn_crash_dialog)
+                .setOnClickListener {
+                    DialogCrashActivity.start(this)
                 }
 
         findViewById<View>(R.id.btn_activity0)
