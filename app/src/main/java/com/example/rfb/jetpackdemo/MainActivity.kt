@@ -11,6 +11,8 @@ import com.example.rfb.jetpackdemo.navigation.NavigationActivity
 import com.example.rfb.jetpackdemo.room.RoomActivity
 import com.example.rfb.jetpackdemo.select_audio.SystemSelectFileActivity
 import com.example.rfb.jetpackdemo.utils.ToastUtil
+import com.example.rfb.jetpackdemo.view2bmp.View2BmpActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 @Keep
 class MainActivity : AppCompatActivity(){
@@ -55,6 +57,10 @@ class MainActivity : AppCompatActivity(){
                 .setOnClickListener {
                     SystemSelectFileActivity.start(this)
                 }
+
+        btn_view_2_bmp.setOnClickListener {
+            View2BmpActivity.start(this)
+        }
     }
 
 }

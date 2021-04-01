@@ -45,4 +45,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="select audio"/>
+
+    <Button
+        android:id="@+id/btn_view_2_bmp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="view 2 bmp"/>
 </LinearLayout>
