@@ -44,7 +44,7 @@ class View2BmpActivity :Activity(){
          * 按示例调用layout函数后，View的大小将会变成你想要设置成的大小。
          */
         v.measure(measuredWidth, measuredHeight)
-        v.layout(0, 0, v.getMeasuredWidth(), v.getMeasuredHeight())
+        v.layout(0, 0, v.measuredWidth, v.measuredHeight)
     }
 
     private fun testLayout2Bmp(){
