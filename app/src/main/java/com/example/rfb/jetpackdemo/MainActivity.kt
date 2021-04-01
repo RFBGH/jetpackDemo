@@ -9,6 +9,7 @@ import com.example.rfb.jetpackdemo.databinding.DataBindingActivity
 import com.example.rfb.jetpackdemo.dialog.DialogCrashActivity
 import com.example.rfb.jetpackdemo.navigation.NavigationActivity
 import com.example.rfb.jetpackdemo.room.RoomActivity
+import com.example.rfb.jetpackdemo.select_audio.SystemSelectFileActivity
 import com.example.rfb.jetpackdemo.utils.ToastUtil
 
 @Keep
@@ -48,6 +49,11 @@ class MainActivity : AppCompatActivity(){
         findViewById<View>(R.id.btn_activity0)
                 .setOnClickListener {
                     Activity0.start(this)
+                }
+
+        findViewById<View>(R.id.btn_select_audio)
+                .setOnClickListener {
+                    SystemSelectFileActivity.start(this)
                 }
     }
 

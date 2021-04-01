@@ -39,6 +39,7 @@
             android:process=".remote" />
 
         <activity android:name=".dialog.DialogCrashActivity" />
+        <activity android:name=".select_audio.SystemSelectFileActivity" />
 
     </application>
 
