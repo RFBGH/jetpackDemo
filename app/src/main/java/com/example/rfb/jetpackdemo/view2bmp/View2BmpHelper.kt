@@ -2,6 +2,7 @@ package com.example.rfb.jetpackdemo.view2bmp
 
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Paint
 import android.view.View
 
 object View2BmpHelper {

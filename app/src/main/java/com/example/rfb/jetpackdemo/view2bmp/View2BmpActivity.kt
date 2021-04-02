@@ -3,11 +3,13 @@ package com.example.rfb.jetpackdemo.view2bmp
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.ImageView
 import com.example.rfb.jetpackdemo.R
 import kotlinx.android.synthetic.main.activity_view2bmp.*
 
@@ -24,6 +26,8 @@ class View2BmpActivity :Activity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view2bmp)
+
+
 
         btnTestViewInWindow.setOnClickListener {
             ivContent.setImageDrawable(BitmapDrawable(View2BmpHelper.view2Bmp(btnTestViewInWindow)))
@@ -58,9 +62,17 @@ class View2BmpActivity :Activity(){
         val height = metric.heightPixels // 屏幕高度（像素）
 
         val view = LayoutInflater.from(this).inflate(R.layout.layout_test, null)
+        val iv = view.findViewById<ImageView>(R.id.iv_icon)
+
+        var avatar = BitmapFactory.decodeResource(resources, R.drawable.test)
+        avatar = BmpHelper.getCircleBitmap(avatar)
+        iv.setImageDrawable(BitmapDrawable(avatar))
+
         layoutView(view, width, height)
 
-        ivContent.setImageDrawable(BitmapDrawable(View2BmpHelper.view2Bmp(view)))
+        var bmp = View2BmpHelper.view2Bmp(view)
+        bmp = BmpHelper.getCircleBitmap(bmp)
+        ivContent.setImageDrawable(BitmapDrawable(bmp))
     }
 
 
