@@ -5,6 +5,7 @@ import android.content.Context
 import android.net.Uri
 import android.provider.OpenableColumns
 import java.io.File
+import java.lang.Exception
 
 data class FileInfo(val name:String, val size:Long)
 
@@ -16,9 +17,13 @@ object UriUtil {
 
             val file = File(uri.path?:"")
             return FileInfo(file.name, file.length())
-        }else{
-            val cursor = context.contentResolver.query(uri, null, null, null, null)
-            if(cursor != null && cursor.moveToFirst()){
+        }
+
+        val contentResolver = context.contentResolver ?: return FileInfo("", 0)
+        val cursor = contentResolver.query(uri, null, null, null, null)?:return FileInfo("", 0)
+
+        try{
+            if(cursor.moveToFirst()){
                 val sizeIndex = cursor.getColumnIndex(OpenableColumns.SIZE)
                 var length = 0L
                 if(!cursor.isNull(sizeIndex)){
@@ -33,9 +38,13 @@ object UriUtil {
 
                 return  FileInfo(name, length)
             }
-
-            return FileInfo("", 0)
+        }catch (e:Exception){
+            e.printStackTrace()
+        }finally {
+            cursor.close()
         }
+
+        return FileInfo("", 0)
     }
 
 }
