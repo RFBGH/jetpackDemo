@@ -3,11 +3,13 @@ package com.example.rfb.jetpackdemo.select_audio
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.example.rfb.jetpackdemo.R
 import kotlinx.android.synthetic.main.activity_system_select_file.*
+import java.lang.StringBuilder
 
 class SystemSelectFileActivity : Activity() {
 
@@ -54,12 +56,19 @@ class SystemSelectFileActivity : Activity() {
             return
         }
 
+        val sb = StringBuilder(data.data?.toString())
+        sb.append("\r\n")
+        val fileInfo = ContentProviderHelper.getFileInfo(this, data.data?: Uri.EMPTY)
+        sb.append("name:${fileInfo.name}")
+        sb.append("\r\n")
+        sb.append("size:${fileInfo.size}")
+
         if(requestCode == 100){
-            tvAudioContent.text = data.data?.toString()
+            tvAudioContent.text = sb.toString()
         }
 
         if(requestCode == 101){
-            tvFileContent.text = data.data?.toString()
+            tvFileContent.text = sb.toString()
         }
 
     }
