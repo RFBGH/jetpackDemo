@@ -8,7 +8,7 @@ import java.io.File
 
 data class FileInfo(val name:String, val size:Long)
 
-object ContentProviderHelper {
+object UriUtil {
 
     fun getFileInfo(context: Context, uri:Uri):FileInfo{
 
