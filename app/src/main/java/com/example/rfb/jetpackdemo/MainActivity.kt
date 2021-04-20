@@ -5,6 +5,7 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.appcompat.app.AppCompatActivity
 import com.example.rfb.jetpackdemo.activity_process.Activity0
+import com.example.rfb.jetpackdemo.bottomsheet.BottomSheetActivity
 import com.example.rfb.jetpackdemo.databinding.DataBindingActivity
 import com.example.rfb.jetpackdemo.dialog.DialogCrashActivity
 import com.example.rfb.jetpackdemo.navigation.NavigationActivity
@@ -56,6 +57,11 @@ class MainActivity : AppCompatActivity(){
         findViewById<View>(R.id.btn_select_audio)
                 .setOnClickListener {
                     SystemSelectFileActivity.start(this)
+                }
+
+        findViewById<View>(R.id.btn_bottom_sheet)
+                .setOnClickListener {
+                    BottomSheetActivity.start(this)
                 }
 
         btn_view_2_bmp.setOnClickListener {

@@ -42,6 +42,7 @@
         <activity android:name=".select_audio.SystemSelectFileActivity" />
         <activity android:name=".view2bmp.View2BmpActivity" />
 
+        <activity android:name=".bottomsheet.BottomSheetActivity" />
     </application>
 
 
