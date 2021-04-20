@@ -18,4 +18,12 @@
         android:text="abc"
         />
 
+    <Button
+        android:id="@+id/btn_expand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="expand"
+        android:layout_gravity="top|center_horizontal"
+        />
+
 </FrameLayout>

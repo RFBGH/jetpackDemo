@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.FrameLayout
 import androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -19,11 +20,39 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 class CustomFragment :BottomSheetDialogFragment(){
 
     lateinit var etInput:EditText
+    lateinit var btnExpand:Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.custom_bottom_sheet_dialog_fragment, container, false)
         etInput = view.findViewById(R.id.et_input)
+        btnExpand = view.findViewById(R.id.btn_expand)
+        btnExpand.setOnClickListener {
+            val behavior = getSheetBehavior()?:return@setOnClickListener
+
+            if(behavior.state == BottomSheetBehavior.STATE_EXPANDED){
+                behavior.state = BottomSheetBehavior.STATE_COLLAPSED
+            }else{
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+
         return view
+    }
+
+    private fun getSheetBehavior():BottomSheetBehavior<FrameLayout>?{
+
+        val dialog = dialog?:return null
+
+        if(dialog !is BottomSheetDialog){
+            return null
+        }
+
+        //把windowsd的默认背景颜色去掉，不然圆角显示不见
+        dialog.window!!.findViewById<View>(R.id.design_bottom_sheet).setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        //获取diglog的根部局
+        //获取diglog的根部局
+        val bottomSheet = dialog.delegate.findViewById<FrameLayout>(R.id.design_bottom_sheet)?:return null
+        return BottomSheetBehavior.from(bottomSheet)
     }
 
     override fun onStart() {
