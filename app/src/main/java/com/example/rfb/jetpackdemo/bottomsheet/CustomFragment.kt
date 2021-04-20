@@ -82,14 +82,25 @@ class CustomFragment :BottomSheetDialogFragment(){
 
             behavior.addBottomSheetCallback(object: BottomSheetBehavior.BottomSheetCallback(){
                 override fun onSlide(bottomSheet: View, slideOffset: Float) {
-                    Log.e("flypig", "slideOffset $slideOffset")
 
-                    param.bottomMargin = (bottomCollapseHeight()* (1-slideOffset)).toInt()
-                    etInput.layoutParams = param
+                    if(behavior.state == BottomSheetBehavior.STATE_DRAGGING
+                            || behavior.state == BottomSheetBehavior.STATE_SETTLING){
+                        param.bottomMargin = (bottomCollapseHeight()* (1-slideOffset)).toInt()
+                        etInput.layoutParams = param
+                    }
                 }
 
                 override fun onStateChanged(bottomSheet: View, newState: Int) {
-                    Log.e("flypig", "newState $newState")
+
+                    if(newState == BottomSheetBehavior.STATE_EXPANDED){
+                        param.bottomMargin = 0
+                    }else if(newState == BottomSheetBehavior.STATE_COLLAPSED){
+                        param.bottomMargin = bottomCollapseHeight()
+                    }else{
+                        return
+                    }
+
+                    etInput.layoutParams = param
                 }
 
             })
