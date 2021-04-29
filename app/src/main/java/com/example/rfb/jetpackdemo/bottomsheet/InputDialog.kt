@@ -10,7 +10,7 @@ import android.view.WindowManager
 import com.example.rfb.jetpackdemo.R
 
 
-class InputDialog(context: Context) : Dialog(context) {
+class InputDialog(context: Context) : Dialog(context, R.style.InputDialog) {
 
     companion object{
 
