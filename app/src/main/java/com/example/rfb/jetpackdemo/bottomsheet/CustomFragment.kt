@@ -21,6 +21,7 @@ class CustomFragment :BottomSheetDialogFragment(){
 
     lateinit var etInput:EditText
     lateinit var btnExpand:Button
+    lateinit var btnInput:Button
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.custom_bottom_sheet_dialog_fragment, container, false)
@@ -34,6 +35,11 @@ class CustomFragment :BottomSheetDialogFragment(){
             }else{
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
+        }
+
+        btnInput = view.findViewById(R.id.btn_input)
+        btnInput.setOnClickListener {
+            InputDialog.show(requireActivity())
         }
 
         return view
