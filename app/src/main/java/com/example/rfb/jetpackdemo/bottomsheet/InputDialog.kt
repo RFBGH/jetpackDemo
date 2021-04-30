@@ -47,6 +47,7 @@ class InputDialog(context: Context) : Dialog(context, R.style.InputDialog) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.input_dialog)
+        window?.setWindowAnimations(R.style.InputDialogAni)
 
         llPanel = findViewById(R.id.ll_panel)
         etInput = findViewById(R.id.et_input)
