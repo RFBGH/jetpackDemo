@@ -27,6 +27,11 @@ class BottomSheetActivity : FragmentActivity() {
                 .setOnClickListener {
                     CustomFragment().show(supportFragmentManager, "test")
                 }
+
+        findViewById<Button>(R.id.btn_input_dialog)
+                .setOnClickListener {
+                    InputDialog.show(this)
+                }
     }
 
 }

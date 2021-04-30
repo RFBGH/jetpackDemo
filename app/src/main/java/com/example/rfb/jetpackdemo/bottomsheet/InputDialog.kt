@@ -4,10 +4,16 @@ import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowManager
+import android.widget.EditText
+import android.widget.FrameLayout
+import android.widget.LinearLayout
 import com.example.rfb.jetpackdemo.R
+import com.example.rfb.jetpackdemo.utils.DisplayUtil
 
 
 class InputDialog(context: Context) : Dialog(context, R.style.InputDialog) {
@@ -32,9 +38,39 @@ class InputDialog(context: Context) : Dialog(context, R.style.InputDialog) {
         }
     }
 
+    lateinit var flContainer:FrameLayout
+    lateinit var llPanel:LinearLayout
+    lateinit var etInput:EditText
+    var isInputOpen = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.input_dialog)
+
+        llPanel = findViewById(R.id.ll_panel)
+        etInput = findViewById(R.id.et_input)
+        etInput.requestFocus()
+
+        flContainer = findViewById(R.id.fl_container)
+        flContainer.rootView.viewTreeObserver.addOnGlobalLayoutListener {
+
+            val out = Rect()
+            llPanel.getGlobalVisibleRect(out)
+            val offset = DisplayUtil.getScreenHeight(context) - out.bottom
+            Log.e("flypig", "offset $offset")
+            if(offset > 300){
+                isInputOpen = true
+                Log.e("flypig", "open")
+            }else{
+
+                if(isInputOpen){
+                    dismiss()
+                }
+
+                Log.e("flypig", "close")
+            }
+
+        }
     }
 }
