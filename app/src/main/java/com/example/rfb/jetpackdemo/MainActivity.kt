@@ -8,6 +8,7 @@ import com.example.rfb.jetpackdemo.activity_process.Activity0
 import com.example.rfb.jetpackdemo.bottomsheet.BottomSheetActivity
 import com.example.rfb.jetpackdemo.databinding.DataBindingActivity
 import com.example.rfb.jetpackdemo.dialog.DialogCrashActivity
+import com.example.rfb.jetpackdemo.mvvm.MvvmActivity
 import com.example.rfb.jetpackdemo.navigation.NavigationActivity
 import com.example.rfb.jetpackdemo.room.RoomActivity
 import com.example.rfb.jetpackdemo.select_audio.SystemSelectFileActivity
@@ -63,6 +64,12 @@ class MainActivity : AppCompatActivity(){
                 .setOnClickListener {
                     BottomSheetActivity.start(this)
                 }
+
+        findViewById<View>(R.id.btn_mvvm)
+                .setOnClickListener {
+                    MvvmActivity.start(this)
+                }
+
 
         btn_view_2_bmp.setOnClickListener {
             View2BmpActivity.start(this)
